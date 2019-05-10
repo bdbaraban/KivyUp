@@ -70,5 +70,3 @@ def find_prefix(split_list):
 
     return split_list
 
-
-run('number:\nthis is a test string\nBiggest: We are trying stuff\npoint: yes\nfewa')
