@@ -8,20 +8,30 @@ class Points:
     @staticmethod
     def bullet(line):
         """
-        Prefaces the input line with an asterisk to make it a bullet point in Markdown
+        Prefaces the input line with an asterisk to make it a bullet point in
+            Markdown
+
         :param line: Input line to modify
         :return: Modified line
         """
-        return '*' + line
+        for i in range(len(line)):
+            line[i] = '* ' + line[i]
+        return(line)
 
     @staticmethod
     def number(line):
         """
-        Prefaces the input line with an asterisk to make it a number point in Markdown
+        Prefaces the input line with an asterisk to make it a number point in
+            Markdown
+
         :param line: Input line to modify
         :return: Modified line
         """
-        return '1.' + line
+        i = 0
+        for key, value in enumerate(line, start=1):
+            line[i] = '{}. {}'.format(key, value)
+            i = i + 1
+        return(line)
 
     def points(self, prefix, split_list):
         """
@@ -39,7 +49,7 @@ class Points:
                 continue
 
             prefix = colon_split_line[0].lower()
-            
+
             if prefix == 'points':
                 split_list[i] = colon_split_line[1]
                 end_index = i
