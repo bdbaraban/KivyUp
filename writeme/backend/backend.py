@@ -3,6 +3,7 @@
 Test file for algorithms for writeme text parsing
 """
 from header.header import Header
+from inline.inline import Inline
 from points.points import Points
 
 
@@ -13,7 +14,8 @@ def run(text):
     :return:
     """
     split_list = split(text)
-    print(find_prefix(split_list))
+    Inline.inline(split_list)
+    print('\n'.join(find_prefix(split_list)))
 
 
 def split(text):
@@ -59,9 +61,10 @@ def find_prefix(split_list):
         if prefix in headers:
             split_list[i] = Header.header(prefix, content)
         elif prefix in points:
+            split_list[i] = content
             Points.points(prefix, split_list[i:])
 
-        return split_list
+    return split_list
 
 
-run('this is a test string\nBiggest: We are trying stuff\nyes')
+run('small: this is a test string\nBiggest: We are trying stuff\nsmallest: yes')
