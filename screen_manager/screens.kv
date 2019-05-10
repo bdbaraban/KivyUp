@@ -1,0 +1,70 @@
+ScreenManagement:
+    WriteMeScreen:
+    ReadMeScreen:
+	
+<WriteMeScreen>:
+    name: 'WRITEME.md'
+
+    RelativeLayout:
+        AnchorLayout:
+            anchor_x: 'center'
+            anchor_y: 'top'
+            TextInput:
+                text: "Write here"
+                focus: True
+                size_hint: 1, .9
+
+        AnchorLayout:
+            anchor_x: 'left'
+            anchor_y: 'bottom'
+            size_hint_y: .1
+            padding: 15, self.size[1] / 4
+            Label:
+                size: self.texture_size
+                text: 'documentation link'
+                font_size: 25
+                halign: 'center'
+                valign: 'center'
+                size_hint: None, None
+
+        AnchorLayout:
+            anchor_x: 'right'
+            anchor_y: 'bottom'
+            size_hint_y: .1
+            padding: 15, (self.size[1] - 50) / 2
+            BubbleButton:
+                arrow_pos: 'right_mid'
+                background_color: 211, 211, 211, .5
+                text: 'README'
+                font_size: 25 
+                size: 150, 50 
+                size_hint: None, None
+                on_press:
+                    root.manager.transition.direction = 'left'
+                    root.manager.current = 'README.md'
+            
+<ReadMeScreen>:
+    name: 'README.md'
+
+    RelativeLayout:
+        AnchorLayout:
+            anchor_x: 'center'
+            anchor_y: 'top'
+            TextInput:
+                text: "Write here"
+                focus: True
+                size_hint: 1, .9
+
+        AnchorLayout:
+            anchor_x: 'left'
+            anchor_y: 'bottom'
+            size_hint_y: .1
+            padding: 15, (self.size[1] - 50) / 2
+            Button:
+                text: 'WRITEME'
+                font_size: 25 
+                size: 150, 50 
+                size_hint: None, None
+                on_press:
+                    root.manager.transition.direction = 'right'
+                    root.manager.current = 'WRITEME.md'
