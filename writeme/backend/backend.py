@@ -48,12 +48,14 @@ def find_prefix(split_list):
         'bullet',
         'number'
     ]
+    i = 0
 
-    for i in range(len(split_list)):
+    while i < (len(split_list)):
         colon_split_line = (split_list[i].split(':', 1))
 
         """If no colons in line, return unmodified line"""
         if len(colon_split_line) is 1:
+            i += 1
             continue
 
         prefix = colon_split_line[0].lower()
@@ -63,9 +65,10 @@ def find_prefix(split_list):
             split_list[i] = Header.header(prefix, content)
         elif prefix in points:
             split_list[i] = content
-            Points.points(prefix, split_list[i:])
+            i = Points.points(Points, prefix, split_list, i)
+        i += 1
 
     return split_list
 
 
-run('small: this is a test string\nBiggest: We are trying stuff\nsmallest: yes')
+run('number:\nthis is a test string\nBiggest: We are trying stuff\npoint: yes\nfewa')

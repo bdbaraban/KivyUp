@@ -27,7 +27,7 @@ def line_break(dankdown_syntax):
     """
     inserts a line break
     """
-    return dankdown_syntax.replace(dankdown_syntax, "\n")
+    return dankdown_syntax.replace(dankdown_syntax, "\n\n")
 
 def emoji(emoji_name):
     """

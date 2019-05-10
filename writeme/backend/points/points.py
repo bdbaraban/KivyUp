@@ -6,7 +6,7 @@ Points package with functions related to points
 
 class Points:
     @staticmethod
-    def bullet(line):
+    def bullet(sub_list, start, end):
         """
         Prefaces the input line with an asterisk to make it a bullet point in
             Markdown
@@ -14,12 +14,11 @@ class Points:
         :param line: Input line to modify
         :return: Modified line
         """
-        for i in range(len(line)):
-            line[i] = '* ' + line[i]
-        return(line)
+        for i in range(start, end):
+            sub_list[i] = '* ' + sub_list[i]
 
     @staticmethod
-    def number(line):
+    def number(sub_list, start, end):
         """
         Prefaces the input line with an asterisk to make it a number point in
             Markdown
@@ -27,37 +26,40 @@ class Points:
         :param line: Input line to modify
         :return: Modified line
         """
-        i = 0
-        for key, value in enumerate(line, start=1):
-            line[i] = '{}. {}'.format(key, value)
-            i = i + 1
-        return(line)
+        num = 1
+        for i in range(start, end):
+            sub_list[i] = '{}. {}'.format(num, sub_list[i])
+            num += 1
 
-    def points(self, prefix, split_list):
+    def points(self, prefix, split_list, start):
         """
         Takes a sublist and finds the sublist of all
         :param prefix:
         :param split_list:
         :return: edited list
         """
-        end_index = len(split_list)
+        split_list.pop(start)
+        skip = start - 1
+        end = len(split_list)
         for i in range(len(split_list)):
+            skip += 1
             colon_split_line = (split_list[i].split(':', 1))
 
             """If no colons in line, return unmodified line"""
             if len(colon_split_line) is 1:
                 continue
 
-            prefix = colon_split_line[0].lower()
+            closer = colon_split_line[0].lower()
 
-            if prefix == 'points':
-                split_list[i] = colon_split_line[1]
-                end_index = i
+            if closer == 'points':
+                split_list.pop(i)
+                skip -= 1
+                end = i - 1
                 break
 
         if prefix == 'bullet':
-            self.bullet(split_list[:end_index])
-        else:
-            self.number(split_list[:end_index])
+            self.bullet(split_list, start, end)
+        elif prefix == 'number':
+            self.number(split_list, start, end)
 
-        return split_list
+        return skip
