@@ -1,7 +1,7 @@
 ScreenManagement:
     WriteMeScreen:
     ReadMeScreen:
-	
+
 <WriteMeScreen>:
     name: 'WRITEME.md'
 
@@ -13,6 +13,8 @@ ScreenManagement:
                 text: "Write here"
                 focus: True
                 size_hint: 1, .9
+		on_text:
+		    root.parent.shared_text = self.text
 
         AnchorLayout:
             anchor_x: 'left'
@@ -34,13 +36,13 @@ ScreenManagement:
             padding: 15, (self.size[1] - 50) / 2
             Button:
                 text: 'README'
-                font_size: 25 
-                size: 150, 50 
+                font_size: 25
+                size: 150, 50
                 size_hint: None, None
                 on_press:
-                    root.manager.transition.direction = 'left'
-                    root.manager.current = 'README.md'
-            
+                    	root.manager.transition.direction = 'left'
+                    	root.manager.current = 'README.md'
+
 <ReadMeScreen>:
     name: 'README.md'
 
@@ -49,7 +51,7 @@ ScreenManagement:
             anchor_x: 'center'
             anchor_y: 'top'
             TextInput:
-                text: "Write here"
+                text: root.manager.shared_text
                 focus: True
                 size_hint: 1, .9
 
@@ -60,8 +62,8 @@ ScreenManagement:
             padding: 15, (self.size[1] - 50) / 2
             Button:
                 text: 'WRITEME'
-                font_size: 25 
-                size: 150, 50 
+                font_size: 25
+                size: 150, 50
                 size_hint: None, None
                 on_press:
                     root.manager.transition.direction = 'right'
