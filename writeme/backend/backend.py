@@ -4,6 +4,7 @@ Test file for algorithms for writeme text parsing
 """
 from header.header import Header
 from inline.inline import Inline
+from inline.inline_stuff import *
 from points.points import Points
 
 
@@ -16,7 +17,7 @@ def run(text):
     split_list = split(text)
     Inline.inline(split_list)
     print('\n'.join(find_prefix(split_list)))
-
+ 
 
 def split(text):
     """
