@@ -20,8 +20,10 @@ class Inline:
         """
         inline_cmd_list = ['bold', 'italics']
 
+        ret_list = []
         new_list = []
         for sentence in split_list:
+            new_list = []
             for word in sentence.split():
                 if word[-1:] == ')':
                     word = word.replace('(', ' ')
@@ -33,5 +35,7 @@ class Inline:
                         marked_down = eval(inline_cmd)(text_to_markdown)
                         word = marked_down
                 new_list.append(word)
-        s = " "
-        return(s.join(new_list))
+            s = " "
+            ret_list.append(s.join(new_list))
+        return ret_list
+

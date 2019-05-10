@@ -15,9 +15,9 @@ def run(text):
     :return:
     """
     split_list = split(text)
-    Inline.inline(split_list)
-    print('\n'.join(find_prefix(split_list)))
- 
+    split_list = Inline.inline(split_list)
+    return '\n'.join(find_prefix(split_list))
+
 
 def split(text):
     """
@@ -70,3 +70,4 @@ def find_prefix(split_list):
 
     return split_list
 
+run('bold(hi)\nbold(hello)')
