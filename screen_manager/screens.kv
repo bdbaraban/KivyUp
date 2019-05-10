@@ -1,3 +1,5 @@
+#:import wb webbrowser
+
 ScreenManagement:
     WriteMeScreen:
     ReadMeScreen:
@@ -5,12 +7,19 @@ ScreenManagement:
 <WriteMeScreen>:
     name: 'WRITEME.md'
 
+    canvas:
+        Color:
+            rgb: 111 / 255, 38 / 255, 61 / 255, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
     RelativeLayout:
         AnchorLayout:
             anchor_x: 'center'
             anchor_y: 'top'
             TextInput:
-                text: "Write here"
+                text: "Time for some big WRITEME moves!"
                 focus: True
                 size_hint: 1, .9
 
@@ -18,14 +27,18 @@ ScreenManagement:
             anchor_x: 'left'
             anchor_y: 'bottom'
             size_hint_y: .1
-            padding: 15, self.size[1] / 4
-            Label:
-                size: self.texture_size
-                text: 'documentation link'
+            padding: 15, (self.size[1] - 50) / 2
+            Button:
+                text: 'Documentation'
+                bold: True
+                color: 111 / 255, 38 / 255, 61 / 255, 1
                 font_size: 25
-                halign: 'center'
-                valign: 'center'
+                size: 200, 50
                 size_hint: None, None
+                background_normal: ''
+                background_color: 206 / 255 , 208 / 255, 206 / 255, .9
+                on_press:
+                    wb.open('https://github.com/christopherchoe/KivyUp/blob/master/README.md')
 
         AnchorLayout:
             anchor_x: 'right'
@@ -34,9 +47,13 @@ ScreenManagement:
             padding: 15, (self.size[1] - 50) / 2
             Button:
                 text: 'README'
+                bold: True
+                color: 111 / 255, 38 / 255, 61 / 255, 1
                 font_size: 25 
                 size: 150, 50 
                 size_hint: None, None
+                background_normal: ''
+                background_color: 206 / 255 , 208 / 255, 206 / 255, .9
                 on_press:
                     root.manager.transition.direction = 'left'
                     root.manager.current = 'README.md'
@@ -44,12 +61,19 @@ ScreenManagement:
 <ReadMeScreen>:
     name: 'README.md'
 
+    canvas:
+        Color:
+            rgb: 112 / 255, 93 / 255, 86 / 255, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
     RelativeLayout:
         AnchorLayout:
             anchor_x: 'center'
             anchor_y: 'top'
             TextInput:
-                text: "Write here"
+                text: "BOOM!"
                 focus: True
                 size_hint: 1, .9
 
@@ -60,9 +84,13 @@ ScreenManagement:
             padding: 15, (self.size[1] - 50) / 2
             Button:
                 text: 'WRITEME'
+                bold: True
+                color: 112 / 255, 93 / 255, 86 / 255, 1
                 font_size: 25 
                 size: 150, 50 
                 size_hint: None, None
+                background_normal: ''
+                background_color: 206 / 255 , 208 / 255, 206 / 255, .9
                 on_press:
                     root.manager.transition.direction = 'right'
                     root.manager.current = 'WRITEME.md'
