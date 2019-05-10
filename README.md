@@ -42,6 +42,7 @@ vvvvvvvvvvvvvvvTOvvvvvvvvvvvvvvv
 # My Project Is This
 ```
 
+
 ```
 smaller: this is a smaller header
 ```
@@ -51,6 +52,7 @@ vvvvvvvvvvvvvvvTOvvvvvvvvvvvvvvv
 ```
 ##### this is a smaller header
 ```
+
 
 ```
 bold(THIS)
@@ -62,6 +64,7 @@ vvvvvvvvvvvvvvvTOvvvvvvvvvvvvvvv
 **THIS**
 ```
 
+
 ```
 italics(THAT)
 ```
@@ -71,6 +74,7 @@ vvvvvvvvvvvvvvvTOvvvvvvvvvvvvvvv
 ```
 *THAT*
 ```
+
 
 ## Authors
 
