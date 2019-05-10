@@ -5,7 +5,10 @@ from screen_manager.manager import presentation
 
 
 class WRITEMEmd(App):
+    """Main WRITEME.md Kivy app."""
+
     def build(self):
+        """Build the screen manager."""
         return presentation
 
 
