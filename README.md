@@ -6,6 +6,10 @@ A MarkDown text parser with simple, more intuitive syntax providing a much clean
 
 These instructions will get you a copy of the project up and running on your local machine for stable usage.
 
+## Parsing
+
+An interesting project because of the language parsing aspect and algorithmic thinking involved in accomplishing this efficiently. Working with the mutability of lists in python, the time complexity of parsing and translating strings, and nested formatting challenged our algorithmic thinking.
+
 ### Prerequisites
 
 ```
@@ -31,46 +35,38 @@ python3 main.py
 You should see the GUI come up. You may then start to type in the KivyUp syntax:
 
 ## Headers
-
+Input:
 ```
 biggest: My Project Is This
 ```
-
-vvvvvvvvvvvvvvvTOvvvvvvvvvvvvvvv
-
+Output
 ```
 # My Project Is This
 ```
 
-
+Input:
 ```
 smaller: this is a smaller header
 ```
-
-vvvvvvvvvvvvvvvTOvvvvvvvvvvvvvvv
-
+Output:
 ```
 ##### this is a smaller header
 ```
 
-
+Input:
 ```
 bold(THIS)
 ```
-
-vvvvvvvvvvvvvvvTOvvvvvvvvvvvvvvv
-
+Output:
 ```
 **THIS**
 ```
 
-
+Input:
 ```
 italics(THAT)
 ```
-
-vvvvvvvvvvvvvvvTOvvvvvvvvvvvvvvv
-
+Output:
 ```
 *THAT*
 ```
